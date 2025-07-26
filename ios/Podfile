@@ -1,0 +1,56 @@
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+platform :ios, '12.4'
+prepare_react_native_project!
+flipper_config = ENV['NO_FLIPPER'] == "1" ? FlipperConfiguration.disabled : FlipperConfiguration.enabled
+
+if (linkage = ENV['USE_FRAMEWORKS'])
+  use_frameworks! :linkage => linkage.to_sym
+end
+
+target 'tnibro' do
+  config = use_native_modules!
+
+  pod 'Firebase', :modular_headers => true
+  pod 'FirebaseCore', :modular_headers => true
+  pod 'FirebaseCoreInternal', :modular_headers => true
+  pod 'GoogleUtilities', :modular_headers => true
+  pod 'Firebase/Analytics'
+  pod 'Google-Mobile-Ads-SDK'
+
+  flags = get_default_flags()
+  use_react_native!(
+    path: config[:reactNativePath],
+    hermes_enabled: false,
+    fabric_enabled: flags[:fabric_enabled],
+    app_path: "#{Pod::Config.instance.installation_root}/.."
+  )
+
+  target 'tnibroTests' do
+    inherit! :complete
+  end
+
+  post_install do |installer|
+    react_native_post_install(installer, mac_catalyst_enabled: false)
+    fix_fb_react_native_spec(installer)
+    __apply_Xcode_12_5_M1_post_install_workaround(installer)
+  end
+end
+
+def fix_fb_react_native_spec(installer)
+  installer.pods_project.targets.each do |target|
+    next unless target.name == 'FBReactNativeSpec'
+    target.build_configurations.each do |config|
+      if %w[Debug Release].include?(config.name)
+        config.build_settings['NODE_BINARY'] = '/opt/homebrew/bin/node'
+        config.build_settings['CLANG_CXX_LANGUAGE_STANDARD'] = 'gnu++14'
+        config.build_settings['CLANG_CXX_LIBRARY'] = 'libc++'
+      end
+    end
+  end
+end
+
+target 'OneSignalNotificationServiceExtension' do
+  pod 'OneSignalXCFramework', '>= 3.0', '< 4.0'
+end

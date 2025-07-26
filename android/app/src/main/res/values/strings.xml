@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">StockYaari</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">7VUCvnDtTw_DY0p3kqXEylhfTm7HDoGQjq1fl</string>
+    <!-- // -->
+    <string name="appCenterCrashes_whenToSendCrashes" moduleConfig="true" translatable="false">DO_NOT_ASK_JAVASCRIPT</string>
+   <string name="appCenterAnalytics_whenToEnableAnalytics" moduleConfig="true" translatable="false">ALWAYS_SEND</string>
+
+     <string name="asset_statements">
+        [{
+            "relation": ["delegate_permission/common.handle_all_urls"],
+            "target": {
+                "namespace": "web",
+                "site": "https://stockyaari.com"
+            }
+        }]
+    </string>
+    <string name="onesignal_notification_accent_color">FF9800</string>
+    <string name="facebook_app_id">730672305793212</string>
+    <string name="facebook_client_token">7e0b06e7a626ee97273cbb62e52babc6</string>
+</resources>

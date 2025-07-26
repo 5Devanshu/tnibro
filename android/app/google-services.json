@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "584441790111",
+    "project_id": "tnibro-855ec",
+    "storage_bucket": "tnibro-855ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584441790111:android:806541579aae0129e6ecaa",
+        "android_client_info": {
+          "package_name": "com.tnibro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "584441790111-7pccs2nub2d0vfvf2a0b7bbo802fiafn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3nJHSEwSMvNUAIes0jvkYLAy5oDeVLE8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "584441790111-7pccs2nub2d0vfvf2a0b7bbo802fiafn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

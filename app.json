@@ -1,0 +1,14 @@
+{
+  "name": "tnibro",
+  "displayName": "tnibro",
+    "react-native-google-mobile-ads": {
+      "android_app_id": "ca-app-pub-8345201315570464~1523971638",
+      "ios_app_id": "ca-app-pub-8345201315570464~2772925387"
+    },
+  "android": {
+    "description": "Invest smarter with tnibro! Track real-time stock data, manage your portfolio, and discover new opportunities.",
+    "keywords": ["stock market signals,buy sell alert, buy sell signals, stockyaari, stockyari, stock yaari, stock yari, groww, nse, bse, stock, share market news"]
+  },
+  "ios": {
+  }
+}
